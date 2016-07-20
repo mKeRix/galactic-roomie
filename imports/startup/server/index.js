@@ -5,6 +5,7 @@ import '../../api/settings/methods';
 import '../../api/settings/server/publications';
 import '../../api/philips-hue/lights/lights';
 import '../../api/philips-hue/lights/methods';
+import '../../api/rooms/rooms';
 
 // scheduled jobs
 import './scheduled-jobs'

@@ -28,6 +28,7 @@ aldeed:collection2
 aldeed:simple-schema
 aldeed:autoform
 vjau:jsdiff2mongo
+todda00:friendly-slugs
 
 # theme specific stuff
 less
