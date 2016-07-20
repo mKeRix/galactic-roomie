@@ -1,0 +1,41 @@
+<template name="settings_lights">
+    {{> app_header title='Lights' description='settings'}}
+
+    <div class="row">
+        {{#if hueSettings}}
+            <div class="control-label col-md-3">Bridge Information</div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-sm-3">Hostname</div>
+                    <div class="col-sm-9">{{hueSettings.hostname}}</div>
+                </div>
+            </div>
+        {{else}}
+            <div class="control-label col-md-3">Connect to a Philips Hue bridge</div>
+            <div class="col-md-9">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <h4>Bridges on your network</h4>
+                            <div class="panel-action">
+                                <a id="refresh-bridges" href="#" data-init-load="true"><i class="ion-refresh {{#if isSearching}}fa-spin{{/if}}"></i></a>
+                            </div>
+                        </div>
+                        <div class="panel-body without-padding">
+                            <ul id="bridges-list" class="list-material">
+                                {{#each bridges}}
+                                    {{> bridge_item}}
+                                {{/each}}
+                            </ul>
+                            {{#if isSearching}}
+                                <div class="refresh-container"><div class="loading-bar indeterminate"></div></div>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+    </div>
+
+    {{> bridge_push_link_modal}}
+</template>
