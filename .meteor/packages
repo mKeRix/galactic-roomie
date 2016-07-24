@@ -27,6 +27,8 @@ percolate:synced-cron
 aldeed:collection2
 aldeed:simple-schema
 aldeed:autoform
+check
+yogiben:autoform-modals
 vjau:jsdiff2mongo
 todda00:friendly-slugs
 
@@ -44,3 +46,6 @@ chrismbeckett:toastr
 mrt:bootstrap-select
 mquandalle:perfect-scrollbar
 fastclick
+
+# dev only tools
+meteortoys:allthings

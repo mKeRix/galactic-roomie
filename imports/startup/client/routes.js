@@ -6,6 +6,7 @@ import '../../ui/layouts/app-body';
 import '../../ui/layouts/app-frame';
 import '../../ui/pages/app-dashboard';
 import '../../ui/pages/settings-lights';
+import '../../ui/pages/settings-rooms';
 
 // ROUTES
 
@@ -20,5 +21,12 @@ FlowRouter.route('/settings/lights', {
     name: 'settings.lights',
     action() {
         BlazeLayout.render('app_body', {main: 'settings_lights'});
+    }
+});
+
+FlowRouter.route('/settings/rooms', {
+    name: 'settings.rooms',
+    action() {
+        BlazeLayout.render('app_body', {main: 'settings_rooms'});
     }
 });

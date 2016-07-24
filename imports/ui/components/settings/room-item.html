@@ -1,0 +1,16 @@
+<template name="room_item">
+    <li class="has-action-left">
+        {{#afModal class="visible" collection="Rooms" operation="update" meteormethod="rooms.update" type="method-update" doc=_id title=name}}
+            <div class="list-action-left">
+                <svg class="icon-room face-radius" role="img" width="100%">
+                    <title>{{icon}} icon</title>
+                    <use xlink:href="/img/icons/hue/rooms/{{icon}}.svg#Layer_1"></use>
+                </svg>
+            </div>
+            <div class="list-content">
+                <span class="title">{{name}}</span>
+                <span class="caption">Channel: {{channel}}</span>
+            </div>
+        {{/afModal}}
+    </li>
+</template>

@@ -9,17 +9,33 @@ const RoomSchema = new SimpleSchema({
         type: String,
         label: 'Name'
     },
-    slug: {
+    icon: {
         type: String,
-        label: 'Slug'
+        label: 'Icon',
+        allowedValues: [
+            'bathroom', 'bedroom', 'carport', 'dining', 'driveway', 'frontdoor', 'garage', 'garden', 'gym', 'hallway',
+            'kids_bedroom', 'kitchen', 'living', 'nursery', 'office', 'other', 'recreation', 'terrace', 'toilet'
+        ]
     },
     channel: {
         type: String,
         label: 'Channel'
     },
     lights: {
-        type: [Lights],
-        label: 'Lights'
+        type: [String],
+        label: 'Lights',
+        autoform: {
+            type: 'select-checkbox-inline',
+            options: function () {
+                let lights = Lights.find();
+                return lights.map(function (light) {
+                    return {
+                        label: light.name,
+                        value: light._id
+                    }
+                })
+            }
+        }
     }
 });
 

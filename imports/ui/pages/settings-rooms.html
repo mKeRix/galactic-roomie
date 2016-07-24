@@ -1,0 +1,29 @@
+<template name="settings_rooms">
+    {{> app_header title='Rooms' description='settings'}}
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <h4>All rooms</h4>
+                        <div class="panel-buttons">
+                            {{#afModal class="btn btn-primary" collection="Rooms" operation="insert" meteormethod="rooms.insert"}}
+                                Add a new room
+                            {{/afModal}}
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-material">
+                        {{#each rooms}}
+                            {{> room_item}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{> autoformModals}}
+</template>
