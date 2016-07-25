@@ -31,6 +31,7 @@ check
 yogiben:autoform-modals
 vjau:jsdiff2mongo
 todda00:friendly-slugs
+reywood:publish-composite
 
 # theme specific stuff
 less
@@ -46,6 +47,7 @@ chrismbeckett:toastr
 mrt:bootstrap-select
 mquandalle:perfect-scrollbar
 fastclick
+mrt:jquery-masonry
 
 # dev only tools
 meteortoys:allthings

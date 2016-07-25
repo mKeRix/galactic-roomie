@@ -67,6 +67,14 @@
                 <a href="{{pathFor 'app.dashboard'}}">Dashboard</a>
             </li>
             <li>
+                <a href="javascript:;">Rooms</a>
+                <ul class="child-menu">
+                    {{#each rooms}}
+                        <li><a href="{{pathFor 'rooms.detail' slug=slug}}">{{name}}</a></li>
+                    {{/each}}
+                </ul>
+            </li>
+            <li>
                 <a href="javascript:;">Settings</a>
                 <ul class="child-menu">
                     <li><a href="{{pathFor 'settings.rooms'}}">Rooms</a></li>

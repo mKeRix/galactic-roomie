@@ -1,0 +1,11 @@
+<template name="room_dashboard">
+    {{#with room}}
+        {{> app_header title=name description='room dashboard'}}
+
+        <div class="row masonry">
+            {{#each lights}}
+                {{> light_card}}
+            {{/each}}
+        </div>
+    {{/with}}
+</template>

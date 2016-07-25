@@ -84,6 +84,7 @@ mongo-id@1.0.5
 mpowaga:string-template@0.1.0
 mquandalle:perfect-scrollbar@0.6.5_2
 mrt:bootstrap-select@1.5.4
+mrt:jquery-masonry@0.1.0
 mrt:modernizr-meteor@2.6.2
 msavin:jetsetter@2.0.0
 msavin:mongol@2.0.1
@@ -103,6 +104,7 @@ reactive-var@1.0.10
 reload@1.1.10
 retry@1.0.8
 rexzh0u:bxslider@4.2.3
+reywood:publish-composite@1.4.2
 routepolicy@1.0.11
 service-configuration@1.0.10
 session@1.1.6

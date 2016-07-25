@@ -5,6 +5,7 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import '../../ui/layouts/app-body';
 import '../../ui/layouts/app-frame';
 import '../../ui/pages/app-dashboard';
+import '../../ui/pages/room-dashboard';
 import '../../ui/pages/settings-lights';
 import '../../ui/pages/settings-rooms';
 
@@ -14,6 +15,13 @@ FlowRouter.route('/', {
     name: 'app.dashboard',
     action() {
         BlazeLayout.render('app_body', {main: 'app_dashboard'});
+    },
+});
+
+FlowRouter.route('/rooms/:slug', {
+    name: 'rooms.detail',
+    action() {
+        BlazeLayout.render('app_body', {main: 'room_dashboard'});
     },
 });
 
