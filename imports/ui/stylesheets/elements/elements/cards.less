@@ -762,10 +762,22 @@
 	// card Image
 	&.card-image{
 		height: 250px;
-		&.card-bg-icon{
-			background-size: 40% 40%;
-			background-position: 50% 40%;
-			background-repeat: no-repeat;
+		.card-bg-icon-image{
+			height: 100%;
+			.svg {
+				fill: currentColor;
+				width: 50%;
+				height: 50%;
+				margin: auto;
+				position: absolute;
+				top: 0;
+				bottom: 15%;
+				right: 0;
+				left: 0;
+			}
+			.svg path {
+				fill: currentColor;
+			}
 		}
 		.card-heading{
 			position: absolute;
