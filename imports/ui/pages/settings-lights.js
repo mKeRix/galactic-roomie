@@ -12,6 +12,10 @@ Template.settings_lights.onCreated(function settingsLightsOnCreated() {
     this.subscribe('settings.hue');
 });
 
+Template.settings_lights.onRendered(function settingsLightsOnRendered() {
+    $('#refresh-bridges').click();
+});
+
 Template.settings_lights.events({
     'click #refresh-bridges': function (event, template) {
         if (!searching.get()) {

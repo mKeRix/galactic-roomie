@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 
 import { Settings } from '../../settings/settings';
 import { HueApi } from 'node-hue-api';
-const hue = require('node-hue-api');
+import hue from 'node-hue-api';
 
 Meteor.methods({
     'philipsHue.bridges.find'() {
