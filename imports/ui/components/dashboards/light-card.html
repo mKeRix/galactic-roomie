@@ -3,10 +3,10 @@
         <div class="card card-white card-image bg-image">
 
             <div class="card-action">
-                <a href="javascript:;"><i class="ion-android-options text-black"></i></a>
+                <a class="light-settings-link" href="javascript:;"><i class="ion-android-options text-black"></i></a>
             </div><!--.card-action-->
 
-            <div class="card-bg-icon-image" style="color: {{lightRGBColor}}">
+            <div class="card-bg-icon-image" style="color: {{lightHexColor}}">
                 <img class="svg" src="{{icon}}" alt="{{modelid}}">
             </div>
 
@@ -16,4 +16,45 @@
 
         </div><!--.card-->
     </div><!--.col-->
+</template>
+
+<template name="light_settings_modal">
+    <div class="modal fade full-height from-right" id="panel-light-settings" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <form id="light-settings-form">
+                        <input type="hidden" id="light-id" name="light-id">
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    <label for="light-settings-on" class="control-label">On/Off</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input id="light-settings-on" name="on" type="checkbox" class="switchery-default">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    <label for="light-settings-hex" class="control-label">Color</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input id="light-settings-hex" name="hex" type="text" class="form-control minicolors" data-control="wheel" data-inline="true">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-flat btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" id="light-modal-submit" class="btn btn-flat btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div><!--.modal-->
 </template>

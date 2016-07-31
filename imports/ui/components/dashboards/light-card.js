@@ -30,6 +30,19 @@ Template.light_card.onRendered(function lightCardOnRendered() {
     });
 });
 
+Template.light_card.events({
+    'click .light-settings-link': function (event, template) {
+        const light = Template.instance().data,
+            modal = $('#panel-light-settings');
+
+        modal.find('.modal-title').text(light.name);
+        modal.find('#light-settings-on').prop('checked', light.state.on);
+        modal.find('#light-settings-hex').minicolors('value', light.state.hex);
+        modal.find('#light-id').val(light._id);
+        modal.modal('show');
+    }
+});
+
 Template.light_card.helpers({
     icon: () => {
         const modelid = Template.instance().data.modelid;
@@ -60,8 +73,10 @@ Template.light_card.helpers({
             return path + 'white_e27_b22.svg#Layer1';
         }
     },
-    lightRGBColor: () => {
+    lightHexColor: () => {
         const state = Template.instance().data.state;
+        let lightHex;
+
         if (state.on) {
             let x,y;
             if (state.hasOwnProperty('xy')) {
@@ -74,10 +89,44 @@ Template.light_card.helpers({
             }
 
             const rgb = RGBXYConverter.convertXYtoRGB(x, y, state.bri / 254);
-            return 'rgb(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ')';
+            lightHex = rgbToHex(rgb[0], rgb[1], rgb[2]);
         }
         else {
-            return 'rgb(0,0,0)';
+            lightHex = '#000000';
         }
+
+        state.hex = lightHex;
+        return lightHex;
+    }
+});
+
+Template.light_settings_modal.onRendered(function lightSettingsModalOnRendered() {
+    let switchery = new Switchery($('#light-settings-on'));
+
+    $('.minicolors').each(function() {
+        $(this).minicolors({
+            control: $(this).attr('data-control') || 'hue',
+            defaultValue: $(this).attr('data-defaultValue') || '',
+            inline: $(this).attr('data-inline') === 'true',
+            letterCase: $(this).attr('data-letterCase') || 'lowercase',
+            opacity: $(this).attr('data-opacity'),
+            position: $(this).attr('data-position') || 'bottom left',
+            theme: 'bootstrap'
+        });
+    });
+});
+
+Template.light_settings_modal.events({
+    'click #light-modal-submit': function (event, template) {
+        const modal = $('#panel-light-settings');
+        const lightId = $('#light-id').val();
+        const state = {
+            on: $('#light-settings-on').prop('checked'),
+            hex: $('#light-settings-hex').val()
+        };
+
+        Meteor.call('lights.setState', lightId, state);
+
+        modal.modal('hide');
     }
 });

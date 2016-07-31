@@ -16,6 +16,10 @@ Meteor.methods({
 
     'philipsHue.bridges.client'() {
         const hueSettings = Settings.findOne({ type: 'philips-hue' });
-        return new HueApi(hueSettings.hostname, hueSettings.username);
+        if (hueSettings) {
+            return new HueApi(hueSettings.hostname, hueSettings.username);
+        } else {
+            return null;
+        }
     }
 });

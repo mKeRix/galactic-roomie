@@ -32,6 +32,7 @@ yogiben:autoform-modals
 vjau:jsdiff2mongo
 todda00:friendly-slugs
 reywood:publish-composite
+remy:color-hex-rgb
 
 # theme specific stuff
 less@2.7.4
@@ -48,6 +49,8 @@ mrt:bootstrap-select
 mquandalle:perfect-scrollbar
 fastclick@1.0.12
 mrt:jquery-masonry
+abpetkov:switchery
+claviska:jquery-minicolors
 
 # dev only tools
 meteortoys:allthings
